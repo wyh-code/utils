@@ -1,10 +1,11 @@
 {
   "name": "@ostore/utils",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "./dist/bundle.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rollup -c  --bundleConfigAsCjs"
   },
   "repository": {
     "type": "git",
@@ -13,8 +14,17 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "bugs": {
     "url": "https://github.com/wyh-code/o-utils/issues"
   },
-  "homepage": "https://github.com/wyh-code/o-utils#readme"
+  "homepage": "https://github.com/wyh-code/o-utils#readme",
+  "devDependencies": {
+    "@babel/core": "^7.18.10",
+    "@babel/preset-env": "^7.18.10",
+    "@rollup/plugin-babel": "^5.3.1"
+  }
 }

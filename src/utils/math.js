@@ -1,5 +1,5 @@
 
-function compute(type, ...args) {
+export function compute(type, ...args) {
   // 计算放大倍数
   const getPower = (numbers) => {
     const lens = numbers.map(num => num.toString().split(".")[1]?.length || 0);
@@ -38,9 +38,4 @@ function compute(type, ...args) {
       return compute(nextType, result, ...nextArgs);
     }
   }
-}
-
-
-export default {
-  compute
 }
