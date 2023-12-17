@@ -1,8 +1,15 @@
 {
   "name": "@ostore/utils",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
-  "main": "./dist/bundle.js",
+  "main": "lib/index.cjs.js",
+  "module": "lib/index.esm.js",
+  "jsnext:main": "lib/index.esm.js",
+  "browser": "lib/index.umd.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib"
+  ],
   "type": "module",
   "scripts": {
     "build": "rollup -c  --bundleConfigAsCjs"
@@ -12,7 +19,7 @@
     "url": "git+https://github.com/wyh-code/o-utils.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "wyh-code<578311720@qq.com>",
   "license": "ISC",
   "publishConfig": {
     "access": "public",
@@ -25,6 +32,13 @@
   "devDependencies": {
     "@babel/core": "^7.18.10",
     "@babel/preset-env": "^7.18.10",
-    "@rollup/plugin-babel": "^5.3.1"
+    "@rollup/plugin-babel": "^5.3.1",
+    "tslib": "^2.6.2"
+  },
+  "dependencies": {
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-typescript": "^11.1.5",
+    "rollup-plugin-terser": "^7.0.2"
   }
 }

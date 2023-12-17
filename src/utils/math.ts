@@ -1,8 +1,9 @@
+type TComputType = "+" | '-' | '*' | '/';
 
-export function compute(type, ...args) {
+export function compute(type: TComputType, ...args: number[]) {
   // 计算放大倍数
-  const getPower = (numbers) => {
-    const lens = numbers.map(num => num.toString().split(".")[1]?.length || 0);
+  const getPower = (numbers: number[]) => {
+    const lens = numbers.map((num: number) => num.toString().split(".")[1]?.length || 0);
     // 获取最大长度
     const len = Math.max(...lens);
     // 计算返回放大倍数
@@ -34,7 +35,7 @@ export function compute(type, ...args) {
 
   return {
     result,
-    next(nextType, ...nextArgs) {
+    next(nextType: TComputType, ...nextArgs: number[]) {
       return compute(nextType, result, ...nextArgs);
     }
   }

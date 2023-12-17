@@ -1,3 +1,3 @@
-import { format } from '../dist/bundle.js'
+import { format } from '../lib/index.esm.js'
 
 format()
