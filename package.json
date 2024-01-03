@@ -1,7 +1,7 @@
 {
   "name": "@ostore/utils",
-  "version": "1.0.2",
-  "description": "",
+  "version": "1.2.0",
+  "description": "一个常用的工具函数库",
   "main": "lib/index.cjs.js",
   "module": "lib/index.esm.js",
   "jsnext:main": "lib/index.esm.js",
@@ -10,35 +10,51 @@
   "files": [
     "lib"
   ],
-  "type": "module",
   "scripts": {
-    "build": "rollup -c  --bundleConfigAsCjs"
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs",
+    "build": "rollup -c"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wyh-code/o-utils.git"
+    "url": "git+https://github.com/wyh-code/utils.git"
   },
-  "keywords": [],
-  "author": "wyh-code<578311720@qq.com>",
+  "keywords": [
+    "utils",
+    "date",
+    "url",
+    "colors",
+    "assets",
+    "base64",
+    "dom",
+    "format",
+    "math",
+    "storage",
+    "url"
+  ],
+  "author": "wyh-code <578311720@qq.com>",
   "license": "ISC",
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
   "bugs": {
-    "url": "https://github.com/wyh-code/o-utils/issues"
+    "url": "https://github.com/wyh-code/utils/issues"
   },
-  "homepage": "https://github.com/wyh-code/o-utils#readme",
+  "homepage": "https://github.com/wyh-code/utils#readme",
   "devDependencies": {
     "@babel/core": "^7.18.10",
     "@babel/preset-env": "^7.18.10",
     "@rollup/plugin-babel": "^5.3.1",
-    "tslib": "^2.6.2"
+    "tslib": "^2.6.2",
+    "vuepress": "^1.9.10"
   },
   "dependencies": {
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@rollup/plugin-typescript": "^11.1.5",
-    "rollup-plugin-terser": "^7.0.2"
+    "rollup-plugin-clear": "^2.0.7",
+    "rollup-plugin-terser": "^7.0.2",
+    "vuepress-theme-reco": "^1.6.17"
   }
 }

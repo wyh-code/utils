@@ -2,7 +2,7 @@ const resolve = require('@rollup/plugin-node-resolve');
 const typescript = require('@rollup/plugin-typescript');
 const commonjs = require('@rollup/plugin-commonjs');
 const { terser } = require('rollup-plugin-terser')
-
+const clear = require('rollup-plugin-clear');
 const { babel } = require('@rollup/plugin-babel');
 
 export default {
@@ -42,6 +42,9 @@ export default {
     }),
     resolve(),
     commonjs(),
+    clear({
+      targets: ['./lib'],
+    }),
     typescript({ module: 'ESNext' }),
   ],
 };
