@@ -16,6 +16,7 @@
 ---
 
 ## 什么是 @ostore/utils
+
   `@ostore/utils` 是一个`JavaScript`工具函数库，其名称源自于开发社区中常用的警句“不要重复造轮子（Don't reinvent the wheel）”。`ostore`的`o`源于轮子的形状，象征着实用性和多功能性，而 `store` 则意味着这是一个功能集合的仓库。其中，`utils`汇集了常用的函数功能。
 
   `ostore`的宗旨是集成那些经过时间检验、广泛使用的通用功能，以避免开发者在日常编程中浪费时间去重新编写这些基本组件。
@@ -26,7 +27,7 @@
   <img src='./image/mp.jpg' height='150'/>
 
 ## 交流
-  欢迎添加笔者微信，交流学习。
+  欢迎添加笔者微信。
   
   <img src='./image/owner.png' height='150'/>
 
