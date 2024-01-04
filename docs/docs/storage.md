@@ -4,7 +4,7 @@ author: wyh-code
 date: '2024-01-03'
 ---
 
-## getCookies
+## 获取cookie（getCookies）
 
 `获取当前页面的cookie值。`
 
@@ -34,7 +34,7 @@ const allCookies = getCookies(); // console.log(allCookies);
 const userCookie = getCookies('user'); // console.log(userCookie);
 ```
 
-## setLocalStorage
+## 存储localStorage（setLocalStorage）
 
 `用于将指定的键值对存储到浏览器的localStorage中，并允许设置额外的选项，包括截止时间、过期时间和访问权限。`
 
@@ -87,7 +87,7 @@ setLocalStorage(
 );
 ```
 
-## getLocalStorage
+## 获取localStorage（getLocalStorage）
 
 `用来从浏览器的 localStorage 中检索数据，并做处理验证检查，例如过期和用户权限。`
 
@@ -127,7 +127,7 @@ if (userData) {
 }
 ```
 
-## setSessionStorage
+## 存储sessionStorage（setSessionStorage）
 
 `用于将指定的键值对存储到浏览器的sessionStorage中，并允许设置额外的选项，包括截止时间、过期时间和访问权限。`
 
@@ -170,7 +170,7 @@ setSessionStorage(
 );
 ```
 
-## getSessionStorage
+## 获取sessionStorage（getSessionStorage）
 
 `用来从浏览器的 sessionStorage 中检索数据，并做处理验证检查，例如过期和用户权限。`
 

@@ -4,7 +4,7 @@ author: wyh-code
 date: '2024-01-03'
 ---
 
-## isDate
+## 日期对象（isDate）
 
 `函数用于检查传入的参数是否为日期对象或能转换为日期对象的字符串。如果是，则返回相应的Date对象；如果不是，或者参数未提供，则默认返回当前日期的Date对象。`
 
@@ -37,7 +37,7 @@ console.log(isDate('2021-04-15')); // 输出: 2021年4月15日的Date对象
 console.log(isDate('2021/04/15')); // 输出: 2021年4月15日的Date对象
 ```
 
-## isLeapYear
+## 是否为闰年（isLeapYear）
 
 `函数用于判断给定的年份是否为闰年。`
 
@@ -70,7 +70,7 @@ console.log(isLeapYear(1900)); // 输出: false
 console.log(isLeapYear('1999')); // 输出: false
 ```
 
-## getDaysOfMonth
+## 月份天数（getDaysOfMonth）
 
 `函数用于获取传入日期所在月份的天数。`
 
@@ -102,7 +102,7 @@ console.log(getDaysOfMonth({ year: 2021, month: 1 })); // 输出: 28 (2021年2�
 console.log(getDaysOfMonth({ year: 2021, month: 0 })); // 输出: 31 (2021年1月)
 ```
 
-## getBeginDayOfMonth
+## 月份开始（getBeginDayOfMonth）
 
 `用于获取指定年月的第一天是星期几。`
 
@@ -136,7 +136,7 @@ const beginDay: number = getBeginDayOfMonth(dateInfo);
 console.log(beginDay);
 ```
 
-## getMonthInfo
+## 月份信息（getMonthInfo）
 
 `用于获取传入时间对应月份的显示信息，包括年份、月份、该月的总天数以及该月第一天是星期几。`
 
@@ -168,7 +168,7 @@ console.log(getMonthInfo('2021-03-15'));
 // 注释：月份为2表示3月，因为月份索引从0开始计数，beginWeek为1表示3月1日是星期一。
 ```
 
-## getMonthDays
+## 日历月份信息（getMonthDays）
 
 `函数用于计算并返回包含特定月份所有天数的数组，每个元素包含年、月、日和时间戳信息。`
 

@@ -4,7 +4,7 @@ author: wyh-code
 date: '2024-01-03'
 ---
 
-## copy
+## 文本复制（copy）
 
 `将指定的文本复制到剪贴板。`
 
@@ -40,7 +40,7 @@ copy('要复制的文本内容', (result) => {
 });
 ```
 
-## copyAsync
+## 异步文本复制（copyAsync）
 
 `以异步方式将指定的文本复制到剪贴板。`
 
@@ -72,7 +72,7 @@ copyAsync('要复制的文本内容')
   });
 ```
 
-## uniqueByKey
+## 指定键去重（uniqueByKey）
 
 `根据指定的键对对象数组进行去重。`
 
@@ -110,7 +110,7 @@ console.log(uniqueItems);
 // 输出: [{ id: 1, name: 'Alice' }, { id: 2, name: 'Bob' }, { id: 3, name: 'Charlie' }]
 ```
 
-## hasNullValue
+## 是否包含null（hasNullValue）
 
 `检查给定对象中是否包含空字符串或null值。`
 
@@ -142,7 +142,7 @@ const containsNull = hasNullValue(data);
 console.log(containsNull); // 输出：true
 ```
 
-## hasNotNullValue
+## 非空（hasNotNullValue）
 
 `检查给定对象中是否至少包含一个非空（非null、非空字符串、非undefined）的值。`
 
@@ -169,7 +169,7 @@ const containsValue = hasNotNullValue(data);
 console.log(containsValue); // 输出：true
 ```
 
-## getDataType
+## 获取数据类型（getDataType）
 
 `获取给定值的精确数据类型。`
 
@@ -203,7 +203,7 @@ console.log(getDataType(/abc/)); // "regexp"
 console.log(getDataType(new Map())); // null (不是直接支持的类型)
 ```
 
-## debounce
+## 防抖（debounce）
 
 `创建一个防抖函数，该函数将延迟调用func直到过了wait毫秒数之后再调用。如果设置了immediate为true，func将在延迟开始前被调用。`
 
@@ -236,7 +236,7 @@ const debouncedResize = debounce(() => {
 window.addEventListener('resize', debouncedResize);
 ```
 
-## throttled
+## 节流（throttled）
 
 `创建一个节流函数，该函数最多每隔limit毫秒调用一次func函数。`
 

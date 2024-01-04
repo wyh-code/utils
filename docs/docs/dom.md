@@ -4,7 +4,7 @@ author: wyh-code
 date: '2024-01-03'
 ---
 
-## getParentNode
+## 获取祖先元素（getParentNode）
 
 `根据给定的类名递归地向上查找并返回一个DOM元素的父节点。`
 
@@ -43,7 +43,7 @@ if (parentWithClass) {
 }
 ```
 
-## requestFullscreen
+## 元素全屏（requestFullscreen）
 
 `请求使指定元素进入全屏模式。`
 
@@ -69,7 +69,7 @@ import { requestFullscreen } from '@ostore/utils';
 requestFullscreen('myVideo');
 ```
 
-## exitFullscreen
+## 退出全屏（exitFullscreen）
 
 `退出全屏模式。`
 

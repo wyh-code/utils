@@ -4,7 +4,7 @@ author: wyh-code
 date: '2024-01-03'
 ---
 
-## compute
+## 四则运算（compute）
 
 `根据给定的计算类型和一系列数字执行基本的数学运算。`
 

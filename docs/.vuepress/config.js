@@ -48,11 +48,11 @@ module.exports = {
               path: "/docs/date"
             },
             { 
-              title: "资源类", 
+              title: "资源", 
               path: "/docs/assets"
             },
             { 
-              title: "本地缓存", 
+              title: "缓存", 
               path: "/docs/storage"
             },
             { 

@@ -4,7 +4,7 @@ author: wyh-code
 date: '2024-01-03'
 ---
 
-## downloadFile
+## 下载文件（downloadFile）
 
 `从指定的URL下载文件，并为下载的文件命名为给定的文件名。`
 
@@ -32,7 +32,7 @@ downloadFile('http://example.com/file.pdf', 'MyFile.pdf').then((result) => {
 });
 ```
 
-## dataURItoBlob
+## base64转二进制（dataURItoBlob）
 
 `将数据URI转换为Blob对象。`
 
@@ -66,7 +66,7 @@ const formData = new FormData();
 formData.append('file', imageBlob, 'image.png');
 ```
 
-## imageToBase64
+## 图像转Base64（imageToBase64）
 
 `将图像文件转换为 Base64 编码的字符串。这个函数返回一个 Promise，该 Promise 成功解析为图像的 Base64 字符串，或在失败时被拒绝。`
 
@@ -100,7 +100,7 @@ fileInput.addEventListener('change', (event) => {
 });
 ```
 
-## getImageSize
+## 获取图片尺寸（getImageSize）
 
 `用于获取网络图片的尺寸。该函数接受一个图片的URL作为参数，返回一个包含宽度和高度的对象的Promise。`
 

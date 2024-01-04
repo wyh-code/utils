@@ -23,8 +23,11 @@
 ## 关注
   欢迎关注公众号，了解`@store/utils`更新动态及其他项目信息。
 
-## 交流
-  欢迎添加作者微信，交流学习。
+  <img src='./image/mp.jpg' height='150'/>
 
+## 交流
+  欢迎添加笔者微信，交流学习。
+  
+  <img src='./image/owner.png' height='150'/>
 
 <!--  -->

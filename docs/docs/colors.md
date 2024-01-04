@@ -4,7 +4,7 @@ author: wyh-code
 date: '2024-01-03'
 ---
 
-## rgbaRegex
+## 匹配rgba或rgb颜色（rgbaRegex）
 
 `此正则表达式用于匹配符合 CSS rgba 或 rgb 颜色格式的字符串。`
 
@@ -23,7 +23,7 @@ const result1 = 'rgba(0, 0, 0, 1)'.match(rgbaRegex);
 console.log(result); // ['rgba(0, 0, 0, 1)', '0', '0', '0', '1', index: 0, input: 'rgba(0, 0, 0, 1)', groups: undefined]
 ```
 
-## hexRegex
+## 匹配十六进制颜色（hexRegex）
 
 `用于验证十六进制颜色代码的正则表达式`
 
@@ -38,7 +38,7 @@ hexRegex.test('#ffff'); // true
 hexRegex.test('#f1f1f1ff'); // true
 ```
 
-## hslRegex
+## 匹配hsl颜色（hslRegex）
 
 `此正则表达式用于匹配符合 CSS hsl 颜色格式的字符串。`
 
@@ -52,7 +52,7 @@ const result = 'hsl(320, 20%, 20%)'.match(hexRegex);
 console.log(result); // ['hsl(320, 20%, 20%)', '320', '20', '20', index: 0, input: 'hsl(320, 20%, 20%)', groups: undefined]
 ```
 
-## hslaRegex
+## 匹配hsla颜色（hslaRegex）
 
 `此正则表达式用于匹配符合 CSS hsla 颜色格式的字符串。`
 
@@ -66,7 +66,7 @@ const result = 'hsla(320, 20%, 20%)'.match(hslaRegex);
 console.log(result); // ['hsla(320, 20%, 20%, .1)', '320', '20', '20', '.1', index: 0, input: 'hsla(320, 20%, 20%, .1)', groups: undefined]
 ```
 
-## rgbaToHex
+## rgba转十六进制（rgbaToHex）
 
 `将rgb或rgba颜色字符串转换为多种颜色格式，包括hex（十六进制）、hexa（带透明度的十六进制）、rgb、rgba以及HSL（色相、饱和度、亮度）相关格式。`
 
@@ -103,7 +103,7 @@ console.log(color.hex); // 输出: #ffa500
 console.log(color.hexa); // 输出: #ffa500cc
 ```
 
-## rgbaToHex
+## 十六进制转rgba（rgbaToHex）
 
 `用于将十六进制颜色代码（包括可选的透明度）转换为多种颜色格式。这包括rgba、rgb、带透明度的hex（十六进制）、不带透明度的hex以及HSL（色相、饱和度、亮度）格式。`
 
@@ -130,7 +130,7 @@ console.log(color.rgba); // 输出: rgba(255, 165, 0, 0.8)
 console.log(color.hexa); // 输出: #ffa500cc
 ```
 
-## rgbaToHsl
+## rgba转hsl（rgbaToHsl）
 
 `用于将RGBA颜色值转换为HSL（色相、饱和度、亮度）或HSLA（加上透明度）格式的颜色字符串。`
 
@@ -163,7 +163,7 @@ const hslaColor = rgbaToHsl(255, 165, 0, 0.8); // 转换RGBA到HSLA
 console.log(hslaColor); // 输出: "hsla(39, 100%, 50%, 0.8)"
 ```
 
-## hslToRgb
+## hsl转rgb（hslToRgb）
 
 `用于将HSL颜色格式（色相、饱和度、亮度）转换为RGB格式。同时，这个函数还能提供十六进制（HEX）颜色格式、RGBA颜色格式以及HSLA颜色格式的转换结果。`
 
@@ -190,7 +190,7 @@ console.log(color.rgb); // 输出: "rgb(64, 191, 64)"
 console.log(color.hex); // 输出: "#40BF40"
 ```
 
-## hslaToRgba
+## hsla转rgba（hslaToRgba）
 
 `用于将HSLA（色相、饱和度、亮度、透明度）格式的颜色字符串转换为包含RGBA、RGB、HEX、HSL、HSLA格式的颜色值。`
 

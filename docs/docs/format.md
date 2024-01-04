@@ -4,7 +4,7 @@ author: wyh-code
 date: '2024-01-03'
 ---
 
-## numberWithCommas
+## 数字千分位分割（numberWithCommas）
 
 `用于将数字转换为格式化的字符串，使其每三位数由逗号分隔。`
 
@@ -32,7 +32,7 @@ console.log(numberWithCommas(1234567)); // 输出: "1,234,567"
 console.log(numberWithCommas('1234567')); // 输出: "1,234,567"
 ```
 
-## formatBankCardNumber
+## 格式化银行卡号（formatBankCardNumber）
 
 `用于格式化银行卡号，使其更易于阅读。`
 
