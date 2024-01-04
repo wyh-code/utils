@@ -1,4 +1,4 @@
----
+<!-- ---
 nav:
   title: 函数
   path: /utils/version
@@ -9,7 +9,7 @@ group:
 
 title: 历史版本
 toc: content
----
+--- -->
 
 ## [文档地址](https://utils.mockdata.cn)
 
