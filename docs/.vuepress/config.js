@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   title: '@ostore/utils',
   description: '一个开发常用的工具函数库',
@@ -88,10 +90,32 @@ module.exports = {
         ]
       }
     ],
-    plugins: [
-     
-    ]
   },
+  plugins: [
+    path.resolve(__dirname, './plugin-code-copy/index.js'),
+    [path.resolve(__dirname, './plugin-bulletin-popover/index.js'), {
+      width: '300px', // 默认 260px
+      title: '消息提示',
+      body: [
+        {
+          type: 'title',
+          content: '添加冴羽好友入前端交流群',
+          style: 'text-aligin: center;'
+        },
+        {
+          type: 'image',
+          src: 'https://cdn.jsdelivr.net/gh/mqyqingfeng/picture/IMG_3516.JPG'
+        }
+      ],
+      footer: [
+        {
+          type: 'button',
+          text: '打赏',
+          link: '/donate'
+        }
+      ]
+    }]
+  ],
   markdown: {
     lineNumbers: true
   },
