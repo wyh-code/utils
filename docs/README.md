@@ -1,19 +1,3 @@
----
-# home: true
-# heroImage: /favicon.png
-# heroText: utils
-# tagline: 一个常用的工具函数库
-# actionText: 快速上手 →
-# actionLink: /zh/guide/
-# features:
-# - title: 简洁至上
-#   details: 以 Markdown 为中心的项目结构，以最少的配置帮助你专注于写作。
-# - title: Vue驱动
-#   details: 享受 Vue + webpack 的开发体验，在 Markdown 中使用 Vue 组件，同时可以使用 Vue 来开发自定义主题。
-# - title: 高性能
-#   details: VuePress 为每个页面预渲染生成静态的 HTML，同时在页面被加载的时候，将作为 SPA 运行。
-# footer: MIT Licensed | Copyright © 2018-present Evan You
----
 
 ## 什么是 @ostore/utils
 
@@ -21,14 +5,25 @@
 
   `ostore`的宗旨是集成那些经过时间检验、广泛使用的通用功能，以避免开发者在日常编程中浪费时间去重新编写这些基本组件。
 
-## 关注
-  欢迎关注公众号，了解`@store/utils`更新动态及其他项目信息。
+## 如何使用
 
-  <img src='./image/mp.jpg' height='150'/>
+- <strong>步骤 1:</strong>安装依赖
+```js
+  npm i @ostore/utils // yarn add @ostore/utils
+```
 
-## 交流
-  欢迎添加笔者微信。
-  
-  <img src='./image/owner.png' height='150'/>
+- <strong>步骤 2:</strong>引入依赖
+```js
+  // 判断是否为闰年
+  import { isLeapYear } from '@ostore/utils';
 
-<!--  -->
+  console.log(isLeapYear(2020)); // 输出: true
+  console.log(isLeapYear(1900)); // 输出: false
+```
+
+## 关注交流
+
+|微信|公众号|
+|:----:|:----:|
+|<img src='https://assets.mockdata.cn/img/owner.png' height='150'/>|<img src='https://assets.mockdata.cn/img/mp.jpg' height='150'/>|
+|添加笔者微信|关注公众号，实时了解动态|
