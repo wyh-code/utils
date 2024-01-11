@@ -1,19 +1,14 @@
-<!-- ---
-nav:
-  title: 函数
-  path: /utils/version
-
-group:
-  title: 版本更新
-  order: 99999
-
-title: 历史版本
-toc: content
---- -->
 
 ## [文档地址](https://utils.mockdata.cn)
 
 ## 版本更新
+### <code>v1.3.1</code> 2024-01-11
+#### 增加
+  - <code>date</code>补充延迟函数
+
+    - <code>sleep</code>同步延迟
+    - <code>asyncSleep</code>异步延迟
+
 ### <code>v1.3.0</code> 2024-01-04
   #### 增加
   - <code>date</code>添加时间模块

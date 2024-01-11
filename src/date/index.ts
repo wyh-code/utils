@@ -166,3 +166,23 @@ export function getMonthDays(time: Date): DayInfo[] {
   
   return dayArr;
 }
+
+/**
+ * 延迟函数
+ * @param time 期望延时的时间，以毫秒为单位。
+ */
+export const sleep = (time: number) => {
+  const t: number = +new Date;
+  while(+(new Date) < time + t){}
+}
+
+/**
+ * 
+ * @param time: number - 指定的延迟时间，单位是毫秒（ms）。
+ * @returns Promise<void>: 在延迟时间结束后解决的Promise。
+ */
+export const asyncSleep = (time: number): Promise<void> => {
+  return new Promise((resolve) => {
+    setTimeout(resolve, time);
+  });
+};

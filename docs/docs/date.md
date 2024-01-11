@@ -190,3 +190,62 @@ const daysArray: DayInfo[] = getMonthDays(date);
 // 输出结果
 console.log(daysArray);
 ```
+
+## 同步延时（sleep）
+`sleep 函数是一个简单的实用工具，用于在JavaScript代码中创建一个同步的延时（停顿）。`
+
+这个函数通过持续检查当前时间与期望的延时时间对比，来阻塞代码执行直到指定的时间间隔过去。
+
+
+<b>注意事项：</b>
+
+- 这种方式的延时是通过忙等待`（busy-waiting）`实现的，也称为自旋锁。
+- `sleep` 函数会阻塞整个`JavaScript`运行环境的执行，包括`UI`的更新，因此可能导致`Web应用`或页面无响应。
+- 这个函数不适用于需要高性能处理的场景，因为它会持续占用`CPU`资源。
+
+使用示例
+```js
+/**
+ * time: number - 期望延时的时间，以毫秒为单位。
+ */
+import { sleep } from '@ostore/utils';
+
+console.log('开始延时');
+sleep(5000); // 延时5秒
+console.log('延时结束');
+```
+
+## 异步延时（asyncSleep）
+`asyncSleep 函数提供了一种在JavaScript代码中创建异步延迟（即“睡眠”）的方法。`
+
+该函数返回一个Promise对象，它在指定的时间后被解决（resolved）。这个异步延迟不会阻塞事件循环，允许其他异步任务在等待期间正常执行。
+
+<b>注意事项：</b>
+
+- `asyncSleep`函数不会阻塞`JavaScript`的事件循环，这意味着其他异步操作如网络请求、用户事件处理等可以在延迟期间继续进行。
+- 这个函数非常适合用在需要延迟操作但不希望阻塞其他任务的场景，如动画、轮询等。
+
+使用示例：
+```js
+/**
+ * 你可以使用.then()方法来处理延迟结束后的逻辑，或者在async函数中使用await关键字。
+ * @param time: number - 指定的延迟时间，单位是毫秒（ms）。
+ * @returns Promise<void>: 在延迟时间结束后解决的Promise。
+ */
+import { asyncSleep } from '@ostore/utils';
+
+// 使用.then()方法
+console.log('开始延迟');
+asyncSleep(3000).then(() => {
+  console.log('延迟结束');
+});
+
+// 使用async/await语法
+const runAsyncTask = async () => {
+  console.log('开始延迟');
+  await asyncSleep(3000);
+  console.log('延迟结束');
+};
+
+runAsyncTask();
+```

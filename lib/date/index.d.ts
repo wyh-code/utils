@@ -70,3 +70,14 @@ export interface DayInfo {
  * time: number：该日期的时间戳。
  */
 export declare function getMonthDays(time: Date): DayInfo[];
+/**
+ * 延迟函数
+ * @param time 期望延时的时间，以毫秒为单位。
+ */
+export declare const sleep: (time: number) => void;
+/**
+ *
+ * @param time: number - 指定的延迟时间，单位是毫秒（ms）。
+ * @returns Promise<void>: 在延迟时间结束后解决的Promise。
+ */
+export declare const asyncSleep: (time: number) => Promise<void>;
