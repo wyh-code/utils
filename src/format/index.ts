@@ -32,3 +32,33 @@ export function formatBankCardNumber(cardNumber: string): string {
   const formatted = digitsOnly.replace(/(\d{4})(?=\d)/g, '$1 ');
   return formatted.trim(); // 如果有尾随空格，去掉它
 }
+
+/**
+ * 文件大小单位格式化
+ * @param bytes: number - 文件大小，以字节为单位的非负数。
+ * @param decimals?: number - （可选）小数点后要保留的位数，默认为 2。如果提供的小数位数为负数，函数将自动将其设置为 0。
+ * @param k?: number = 1024 - （可选）计算文件大小单位的基数，默认为1024（二进制，1 KiB = 1024 Bytes）。
+ * 可以设置为1000（十进制，1 KB = 1000 Bytes）。
+ * @returns string - 表示文件大小的格式化字符串，包含了适当的单位。例如 "1.46 KiB", "23.74 MB"。
+ */
+export function formatFileSize(bytes: number, decimals: number = 2, base: number = 1024): string {
+  if (bytes < 0) {
+    throw new Error('File size cannot be negative.');
+  }
+
+  if (bytes === 0) return '0 Bytes';
+
+  const k = base; // 允许自定义基数，例如 1024 或 1000
+  const dm = decimals < 0 ? 0 : decimals;
+  const sizes = base === 1024 
+    ? ['Bytes', 'KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB'] 
+    : ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+
+  const i = Math.floor(Math.log(bytes) / Math.log(k));
+
+  if (i >= sizes.length) {
+    throw new Error('File size is too large and exceeds the supported unit range.');
+  }
+
+  return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+}

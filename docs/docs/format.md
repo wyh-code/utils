@@ -58,3 +58,40 @@ console.log(formatBankCardNumber('1234567890123456')); // 输出: "1234 5678 901
 console.log(formatBankCardNumber('1234-5678-9012-3456')); // 输出: "1234 5678 9012 3456"
 console.log(formatBankCardNumber('1234 5678 9012 3456')); // 输出: "1234 5678 9012 3456"
 ```
+
+## 文件大小单位格式化（formatFileSize）
+`将文件大小从字节单位转换为更大的单位（KB、MiB、GB 等），并以字符串形式返回格式化后的文件大小。支持自定义基数，以适应不同的单位制（二进制或十进制）。`
+
+<b>注意事项：</b>
+
+  - 提供的文件大小 bytes 必须为非负数。如果文件大小为负数，函数将抛出错误。
+  - 对于极大的文件大小，如果文件大小超出 sizes 数组提供的最大单位，函数将抛出错误。
+  - 函数的 base 参数允许用户根据需要选择二进制或十进制单位。根据 base 的不同，sizes 数组会相应改变，保证单位的正确性。
+
+
+使用示例：
+
+```js
+/**
+ * 文件大小单位格式化
+ * @param bytes: number - 文件大小，以字节为单位的非负数。
+ * @param decimals?: number - （可选）小数点后要保留的位数，默认为 2。如果提供的小数位数为负数，函数将自动将其设置为 0。
+ * @param k?: number = 1024 - （可选）计算文件大小单位的基数，默认为1024（二进制，1 KiB = 1024 Bytes）。
+ * 可以设置为1000（十进制，1 KB = 1000 Bytes）。
+ * @returns string - 表示文件大小的格式化字符串，包含了适当的单位。例如 "1.46 KiB", "23.74 MB"。
+ */
+import { formatFileSize } from '@ostore/utils';
+
+// 默认保留两位小数，基数为1024
+console.log(formatFileSize(1500)); // 输出: "1.46 KiB"
+
+// 指定保留三位小数，基数为1024
+console.log(formatFileSize(1500, 3)); // 输出: "1.465 KiB"
+
+// 使用十进制单位，基数为1000
+console.log(formatFileSize(1500, 2, 1000)); // 输出: "1.50 KB"
+
+// 文件大小为 0
+console.log(formatFileSize(0)); // 输出: "0 Bytes"
+
+```
