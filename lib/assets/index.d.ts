@@ -32,3 +32,24 @@ export declare function getImageSize(imageSrc: string): Promise<{
     width: number;
     height: number;
 }>;
+/**
+ * 获取 Base64 编码图片的大致文件大小
+ * @param base64String string: Base64 编码的图片字符串。
+ * 如果这个字符串包含了数据 URI 前缀（如 data:image/png;base64,），该前缀将会在计算之前被移除。
+ * @returns number: 表示 Base64 编码数据的近似字节大小。
+ */
+export declare function getBase64ImageSize(base64String: string): number;
+/**
+ * 图片压缩
+ * @param file File: 必须，要压缩的图像文件对象。
+ * @param options ICompressImageOptions: 非必须，压缩配置。
+ * @returns Promise<Blob>: 一个 Promise，它在压缩操作成功完成时解析为包含压缩后图像数据的 Blob 对象。
+ */
+interface ICompressImageOptions {
+    maxWidth?: number;
+    maxHeight?: number;
+    quality?: number;
+    mime?: string;
+}
+export declare function compressImage(file: File, options?: ICompressImageOptions): Promise<Blob>;
+export {};

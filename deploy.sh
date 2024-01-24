@@ -7,15 +7,18 @@ set -e
 node changeVersion.js $2
 
 # rollup打包
+echo 'npm run build'
 npm run build
 
 # github 提交
+echo 'github 提交'
 git add .
 git commit -m $1
 git pull
 git push
 
 # npm 发布
+echo 'npm 发布'
 npm publish
 
 echo '发布完成'

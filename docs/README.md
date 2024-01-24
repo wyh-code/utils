@@ -25,5 +25,5 @@
 
 |微信|公众号|
 |:----:|:----:|
-|<img src='https://assets.mockdata.cn/img/owner.png' height='150'/>|<img src='https://assets.mockdata.cn/img/mp.jpg' height='150'/>|
+|<img src='https://assets.mockdata.cn/img/owner.png' height='150'/>|<img src='https://assets.mockdata.cn/img/mock_mp.jpg' height='150'/>|
 |添加笔者微信|关注公众号，实时了解动态|

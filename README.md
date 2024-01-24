@@ -2,10 +2,18 @@
 ## [文档地址](https://utils.mockdata.cn)
 
 ## 版本更新
+### <code>v1.3.2</code> 2024-01-24
+#### 增加
+  - <code>format</code>补充格式化函数
+    - <code>formatFileSize</code>文件大小单位格式化
+
+  - <code>assets</code>补充资源函数
+    - <code>getBase64ImageSize</code>获取Base64编码图片文件大小
+    - <code>compressImage</code>图片压缩
+
 ### <code>v1.3.1</code> 2024-01-11
 #### 增加
   - <code>date</code>补充延迟函数
-
     - <code>sleep</code>同步延迟
     - <code>asyncSleep</code>异步延迟
 

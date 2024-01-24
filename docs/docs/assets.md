@@ -66,23 +66,23 @@ const formData = new FormData();
 formData.append('file', imageBlob, 'image.png');
 ```
 
-## 图像转Base64（imageToBase64）
+## 图片转Base64（imageToBase64）
 
-`将图像文件转换为 Base64 编码的字符串。这个函数返回一个 Promise，该 Promise 成功解析为图像的 Base64 字符串，或在失败时被拒绝。`
+`将图片文件转换为 Base64 编码的字符串。这个函数返回一个 Promise，该 Promise 成功解析为图片的 Base64 字符串，或在失败时被拒绝。`
 
 <b>注意事项:</b>
 
 - 请确保在使用此函数时处理 Promise 的拒绝情况，以避免未捕获的 Promise 异常。
-- 转换大文件为 Base64 可能会消耗较多的内存，并且可能导致性能问题，建议仅对较小的图像文件使用此函数。
-- Base64 编码的图像数据通常比原始二进制数据大约 33%，需要考虑这额外的数据大小。
-- 返回的 Base64 字符串可以直接用在 HTML 的 img 元素的 src 属性中，或者用于网络请求中传输图像数据。
+- 转换大文件为 Base64 可能会消耗较多的内存，并且可能导致性能问题，建议仅对较小的图片文件使用此函数。
+- Base64 编码的图片数据通常比原始二进制数据大约 33%，需要考虑这额外的数据大小。
+- 返回的 Base64 字符串可以直接用在 HTML 的 img 元素的 src 属性中，或者用于网络请求中传输图片数据。
 
 使用示例：
 
 ```js
 /**
- * 将图像文件转换为 Base64 编码的字符串。
- * @param file (File|undefined): 一个 File 对象，代表用户选取的图像文件。如果为 undefined，Promise 将会被拒绝。
+ * 将图片文件转换为 Base64 编码的字符串。
+ * @param file (File|undefined): 一个 File 对象，代表用户选取的图片文件。如果为 undefined，Promise 将会被拒绝。
  * @returns 一个 Promise，成功时解析为 Base64 编码的字符串，失败时被拒绝并返回一个错误对象。
  */
 import { imageToBase64 } from '@ostore/utils';
@@ -92,7 +92,7 @@ fileInput.addEventListener('change', (event) => {
   const file = event.target.files[0];
   imageToBase64(file)
     .then((base64String) => {
-      console.log('图像的 Base64 编码: ', base64String);
+      console.log('图片的 Base64 编码: ', base64String);
     })
     .catch((error) => {
       console.error('转换失败: ', error.message);
@@ -129,4 +129,83 @@ getImageSize('https://example.com/image.jpg')
   .catch((error) => {
     console.error(error.message);
   });
+```
+
+## 获取Base64编码图片文件大小（getBase64ImageSize）
+`此函数用于计算 Base64 编码图片的大致文件大小（以字节为单位）。它通过分析 Base64 编码字符串的长度（排除任何前缀和填充字符）来估算原始二进制数据的大小。`
+
+<b>注意事项:</b>
+
+- 此函数提供的大小是原始图片数据的近似大小，不包括与文件格式相关的任何额外元数据。
+- Base64 编码通常会增加原始数据大小约为 1/3。因此，该函数试图通过除去编码引入的附加大小来估算原始大小。
+- 如果 Base64 字符串不符合标准编码，函数可能无法正确工作。
+- 函数返回的大小是估算值。如果需要精确的原始二进制数据大小，应该将 Base64 字符串转换回二进制形式进行测量。
+
+使用示例：
+
+```js
+/**
+ * 获取 Base64 编码图片的大致文件大小
+ * @param base64String string: Base64 编码的图片字符串。
+ * 如果这个字符串包含了数据 URI 前缀（如 data:image/png;base64,），该前缀将会在计算之前被移除。
+ * @returns number: 表示 Base64 编码数据的近似字节大小。
+ */
+import { getImageSize } from '@ostore/utils';
+
+const base64Image: string = 'data:image/png;base64,iVBORw0...'; // 使用您的实际 Base64 字符串
+const imageSizeInBytes: number = getImageSize(base64Image);
+console.log(`Image size: ${imageSizeInBytes} bytes`);
+
+```
+
+## 图片压缩（compressImage）
+`compressImage 函数通过使用 HTML Canvas API 来调整图像尺寸并压缩图像质量，以减少图像文件的大小。`
+
+这个函数返回一个 Promise，该 Promise 在图像压缩成功时解析为一个 Blob 对象。
+
+<b>注意事项:</b>
+
+- 函数返回的 Blob 对象默认为 JPEG 格式。如果需要其他格式，请在方法的第二个参数中指定相应的 MIME 类型。
+- 确保压缩的质量系数 quality 在 0 到 1 之间，以避免无效参数错误。
+- 该函数在浏览器环境中运行，需要支持 HTML Canvas API。
+
+<b>options（ICompressImageOptions）</b>
+|参数|类型|说明|默认值|
+|:----:|:----:|:----:|:----:|
+|maxWidth|number|非必须，目标最大宽度。如果图像宽度大于此值，则将按比例缩小图像的尺寸|默认取图片宽度。|
+|maxHeight|number|非必须，目标最大高度。如果图像高度大于此值，则将按比例缩小图像的尺寸|默认取图片高度。|
+|quality|number|非必须，图像压缩的质量系数。值应在 0 到 1 之间，其中 1 为最高质量（无损压缩）|默认取 0.8。|
+|mime|string|非必须，目标最大宽度。如果图像宽度大于此值，则将按比例缩小图像的尺寸|image/jpeg|
+
+使用示例：
+```js
+/**
+ * 图片压缩
+ * @param file File: 必须，要压缩的图像文件对象。
+ * @param options ICompressImageOptions: 非必须，压缩配置。
+ * @returns Promise<Blob>: 一个 Promise，它在压缩操作成功完成时解析为包含压缩后图像数据的 Blob 对象。
+ */
+import { getImageSize } from '@ostore/utils';
+
+const fileInput = document.getElementById('file-input') as HTMLInputElement;
+
+fileInput.onchange = (event) => {
+  const file = (event.target as HTMLInputElement).files![0];
+
+  compressImage(file, 800, 600, 0.7)
+    .then((compressedBlob) => {
+      // 处理压缩后的 Blob 对象
+      console.log('Compressed image Blob:', compressedBlob);
+      // 可以将 Blob 转换为 File 对象以便上传或使用
+      const compressedFile = new File([compressedBlob], file.name, { type: 'image/jpeg' });
+      // 可以创建一个 URL 用于图像预览
+      const previewUrl = URL.createObjectURL(compressedFile);
+      // 在这里展示图像或将文件上传到服务器
+      ... ...
+    })
+    .catch((error) => {
+      // 处理可能发生的压缩错误
+      console.error('Image compression error:', error);
+    });
+};
 ```
