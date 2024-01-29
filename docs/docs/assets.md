@@ -150,10 +150,10 @@ getImageSize('https://example.com/image.jpg')
  * 如果这个字符串包含了数据 URI 前缀（如 data:image/png;base64,），该前缀将会在计算之前被移除。
  * @returns number: 表示 Base64 编码数据的近似字节大小。
  */
-import { getImageSize } from '@ostore/utils';
+import { getBase64ImageSize } from '@ostore/utils';
 
 const base64Image: string = 'data:image/png;base64,iVBORw0...'; // 使用您的实际 Base64 字符串
-const imageSizeInBytes: number = getImageSize(base64Image);
+const imageSizeInBytes: number = getBase64ImageSize(base64Image);
 console.log(`Image size: ${imageSizeInBytes} bytes`);
 
 ```
