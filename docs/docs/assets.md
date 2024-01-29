@@ -185,7 +185,7 @@ console.log(`Image size: ${imageSizeInBytes} bytes`);
  * @param options ICompressImageOptions: 非必须，压缩配置。
  * @returns Promise<Blob>: 一个 Promise，它在压缩操作成功完成时解析为包含压缩后图像数据的 Blob 对象。
  */
-import { getImageSize } from '@ostore/utils';
+import { compressImage } from '@ostore/utils';
 
 const fileInput = document.getElementById('file-input') as HTMLInputElement;
 
